@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiLogIn } from 'react-icons/fi';
 
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
@@ -13,11 +14,13 @@ const index = () => {
         <form>
           <h1>Faça seu logon</h1>
           <input type="text" placeholder="id" />
-          <button className="button" type="submit">Entrar</button>
-          <a href="/register">
+          <button className="button" type="submit">
+            Entrar
+          </button>
+          <Link className="backlink" to="/register">
             <FiLogIn size={16} color="#E02041" />
             Não tenho cadastro
-          </a>
+          </Link>
         </form>
       </section>
       <img src={heroesImg} alt="Heroes" />
