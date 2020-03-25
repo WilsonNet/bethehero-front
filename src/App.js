@@ -1,11 +1,8 @@
 import React from 'react';
+import Header from './Header';
 
 function App() {
-  return (
-    <h1 className="App">
-      Oeee
-    </h1>
-  );
+  return <Header title={'Be The Hero'} />;
 }
 
 export default App;
