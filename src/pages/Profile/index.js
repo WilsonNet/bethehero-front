@@ -23,6 +23,20 @@ const Profile = () => {
       });
   }, [ongId]);
 
+  const handleDeleteIncident = async id => {
+    try {
+      await api.delete(`incidents/${id}`, {
+        headers: {
+          Authorization: ongId
+        }
+      });
+
+      setIncidents(incidents.filter(incident => incident.id !== id));
+    } catch (error) {
+      alert('error ao deletar caso');
+    }
+  };
+
   return (
     <div className="profile-container">
       <header>
@@ -51,10 +65,9 @@ const Profile = () => {
                 style: 'currency',
                 currency: 'BRL'
               }).format(incident.value)}
-            
             </p>
 
-            <button>
+            <button onClick={() => handleDeleteIncident(incident.id)}>
               <FiTrash2 size={20} color="#a8a8b3" />
             </button>
           </li>
